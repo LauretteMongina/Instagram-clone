@@ -92,7 +92,7 @@ def user_profile(request, username):
     params = {
         'user_prof': user_prof,
         'user_posts': user_posts,}
-    return render(request, 'user.html', params)
+    return render(request, 'insta/user.html', params)
 
 
 @login_required(login_url='/accounts/login/')
