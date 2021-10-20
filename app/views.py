@@ -24,9 +24,9 @@ def registration(request):
             user = authenticate(username=username, password=raw_password)
             email = form.cleaned_data.get('email')
             login(request, user)
-            recipient = Profile(user = user,email =email)
-            recipient.save()
-            send_welcome_email(user,email)
+            # recipient = Profile(user = user,email =email)
+            # recipient.save()
+            # send_welcome_email(user,email)
             return redirect('index')
     else:
         form = RegistrationForm()
