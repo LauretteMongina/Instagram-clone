@@ -19,7 +19,7 @@
 </head>
 {% block content %}
 <div class="container" style="margin-top:7%;">
-    <div class="card" style="background-color: black;">
+    <div class="card" >
         <div class="row">
             <div class="col-md-5 " >
                                 <img src="{{ image.image.url }}"  class="card-img" width="100%"/>
@@ -27,19 +27,19 @@
             <div class="col-md-2"></div>
             <div class="col-md-4 mt-2">
                 
-                <a href="{% url 'user' .user.username %}" class="mt-4 user" style="color:darkorange;">{{user.username | title}}</a>
+                <a href="{% url 'user' .user.username %}" class="mt-4 user" style="font-weight: bold;color: darkorange;">{{user.username | title}}</a>
 
                 <hr style="width:88%">
                 {% for comment in comment %}
                 <div class="comment">
-                    <div class="ml-2"><strong>{{ comment.user.user.username }}</strong> <span class="text-" style="color: darkorange;">{{ comment.comment }}</span>
+                    <div class="ml-2"><strong>{{ user.comment.user.username }}</strong> <span class="text-" style="color: darkorange;">{{ comment.comment }}</span>
                     </div>
                 </div>
                 {% empty %}
-                <p class="ml-3" style="color: darkorange;" >No comments here yet</p>
+                <p class="ml-3" >No comments here yet</p>
                 {% endfor %}
-                <h6 class="" style="color: white;">{{ image.image_caption|slice:":30" }}<small><span class="text-muted">...Read
-                    More</span></small> </h6>
+                <h6 class="ml-3" style="text-align: center;font-weight: bold;">Caption</h6>
+                <h6 class="ml-3" >{{ image.image_caption|slice:":30" }}</h6>
                 <hr style="width:96%; margin-top:84%;">
                 <div class="row">
                     <div class="col-md-10">
