@@ -57,10 +57,9 @@
                     </a></button>
                 </div>
                 <span class="ml-4 mb-1" style="color: black;"><strong>{{user.username|title}}</strong></span>
-                <h6 class="" style="color: white;">{{ image.image_caption|slice:":30" }}<small><span class="text-muted">...Read
-                    More</span></small> </h6>
+                <h6 class="ml-4 mb-1"><strong>{{ image.image_caption|slice:":30" }}</strong></h6>
                 <span class="ml-4 mb-1" style="color: black;"><strong>{{image.like_count}}like</strong></span>
-                <span class="text ml-4 viewall"><a href="{% url 'comment' image.id %}" style="color:black">view all {{image.comments_count}} comments</a></span>
+                <span class="text ml-4 viewall"><a href="{% url 'comment' image.id %}" style="color:gray;font-weight: bold;">View all {{image.comments_count}} comments</a></span>
                 <div class="allcomments mb-1">
                     {% for comment in image.comment.all|slice:'2' %}
                     <div class="comment">
@@ -70,7 +69,7 @@
                     </div>
                     {% empty %}
                     {% endfor %}
-                    <p class="text ml-4" style="color: white;">{{image.created_at}}</p>
+                    <p class="text ml-4" style="color: gray;font-weight: bold;">{{image.created_at|timesince}}</p>
                 </div>
             </div>
             {% endfor %}
