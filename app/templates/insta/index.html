@@ -36,15 +36,15 @@
             </div>
 
             {% for image in images %}
-            <div class="card mb-4" style="background-color: black;">
+            <div class="card mb-4 h-30 w-150" style="background-color: white;">
                 <div class="card-title">
                     <img src="" class=" border ml-3 mt-2 mr-3"
                           width="20" height="20">
                     <a href="{% url 'user' user.username  %}" class="mt-4 user" style="color: white;">{{user.username|title}}</a>
                 </div>
-                <div class="card-body mb-4">
+                <div class="card-body mb-4 ">
                     <a href="{% url 'comment' image.id %}"><div class="card-text">
-                        <img src="{{ image.image.url }}"  class="card-img" height="400px" width="100%">
+                        <img src="{{ image.image.url }}"  class="card-img"  width="100%">
                     </div></a>
                 </div>
                 <div class="iconic ml-2">
@@ -56,10 +56,10 @@
                             class="far fa-comment hearticon mx-auto" aria-hidden="true" style="color:darkorange ;" ></i>
                     </a></button>
                 </div>
-                <span class="ml-4 mb-1" style="color: white;"><strong>{{user.username|title}}</strong></span>
-                <span class="ml-4 mb-1" style="color: white;"><strong>{{image.like_count}}like</strong></span>
-                <span class="text ml-4 viewall" style="color: white;"><a href="{% url 'comment' image.id %}" style="color:white">view all {{image.comments_count}} comments</a></span>
-                <div class="allcomments mb-4">
+                <span class="ml-4 mb-1" style="color: black;"><strong>{{user.username|title}}</strong></span>
+                <span class="ml-4 mb-1" style="color: black;"><strong>{{image.like_count}}like</strong></span>
+                <span class="text ml-4 viewall"><a href="{% url 'comment' image.id %}" style="color:black">view all {{image.comments_count}} comments</a></span>
+                <div class="allcomments mb-1">
                     {% for comment in image.comment.all|slice:'2' %}
                     <div class="comment">
                         <div class="ml-4"><strong>{{ user.username }}</strong> <span
@@ -80,22 +80,23 @@
                 </div>
                 <div class="col-md-6 mt-4 user-detail">
                     <span class=" text-secondary"><a
-                            href="{% url 'user' user.username %}" style="color:darkorange ">{{ user.username }}</a></span> <br>
+                            href="{% url 'user' user.username %}" style="color: black;font-weight: bold;">{{ user.username }}</a></span> <br>
                     <span class=" inname">{{ user.profile.name }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card mt-4 mr-2 ml-2">
+                    <h3 style="text-align: center;font-weight: bold;color: darkorange;">People</h3>
+                    <div class="card mt-4 mr-2 ml-2" >
                         {% for user in users %}
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-2 mr-3 mt-1 mb-2">
+                                <div class="col-md-2 mr-3 mt-1 mb-2" >
                                     <img class="rounded-circle" src="{{ user.profile.photo.url }}"
                                          width="45px" height="45px">
                                 </div>
                                 <div class="col-md-6 mr-2 mt-2">
-                                    <span><a href="{% url 'user' user.username  %}">{{user.username}}</a></span>
+                                    <span><a href="{% url 'user' user.username  %}" style="color: black;font-weight: bold;">{{user.username}}</a></span>
                                 </div>
                                 <div class="col-md-4">
                                 </div>
