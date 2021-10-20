@@ -27,7 +27,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-4 mt-2">
                 
-                <a href="{% url 'user' .user.username %}" class="mt-4 user" style="font-weight: bold;color: darkorange;">{{user.username | title}}</a>
+                <a href="{% url 'user' .user.username %}" class="mt-4 user" style="font-weight: bold;color: darkorange;">{{image.user.user.username | title}}</a>
 
                 <hr style="width:88%">
                 {% for comment in comments %}
