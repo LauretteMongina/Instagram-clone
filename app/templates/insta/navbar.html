@@ -1,0 +1,18 @@
+{% load static %}
+<div class="navbar fixed-top bg-black">
+  <nav class="container">
+    <span class="navbar-brand mb-0 h1">
+        <a href="/"><img src="{% static 'images/logo.png' %}" alt="">
+            <div id="brand" class="instaicon logo d-none d-sm-block"></div>
+            <div class="instaicon mainicon d-block d-sm-none"></div>
+        </a>
+    </span>
+    <ul class="navbar-nav me-auto mb-2 mt-3 mb-lg-0">
+      <div class="container-fluid search-form text-center">
+          <form class="d-flex" action="{% url 'search' %}">
+              <input class="form-control me-2" type="search" name="search" placeholder="Search Image name....." aria-label="Search">
+          </form>
+      </div>
+  </ul>
+  </nav>
+</div>
