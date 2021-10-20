@@ -152,7 +152,7 @@ def comment(request, id):
         'comments':comments,
     }
     # image = Image.objects.get(id=id)
-    image.comments_count = image.comments_count + 1
+    # image.comments_count = image.comments_count + 1
     image.save()
 
     return render(request, 'insta/single.html', params)

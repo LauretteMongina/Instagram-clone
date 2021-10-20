@@ -65,7 +65,7 @@
                 <span class="ml-4 mb-1" style="color: black;"><strong>{{user.username|title}}</strong></span>
                 <h6 class="ml-4 mb-1"><strong>{{ image.image_caption|slice:":30" }}</strong></h6>
                 <span class="ml-4 mb-1" style="color: black;"><strong>{{image.like_count}}like</strong></span>
-                <span class="text ml-4 viewall"><a href="{% url 'comment' image.id %}" style="color:gray;font-weight: bold;">View all {{image.comments_count}} comments</a></span>
+                <span class="text ml-4 viewall"><a href="{% url 'comment' image.id %}" style="color:gray;font-weight: bold;">View all comments</a></span>
                 <div class="allcomments mb-1">
                     {% for comment in image.comments.all|slice:'2' %}
                     <div class="comment">
