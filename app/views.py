@@ -11,6 +11,7 @@ from .models import Image, Comment, Profile
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.views.generic import RedirectView
+from .email import send_welcome_email
 
 # Create your views here.
 def registration(request):
@@ -129,23 +130,25 @@ def search(request):
 @login_required(login_url='login')
 def comment(request, id):
     image = get_object_or_404(Image, pk=id)
+    comments = image.comments.all()
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
-            savecomment = form.save(commit=False)
-            comment= form.cleaned_data['comment']
-            savecomment.post = image
-            # savecomment.user = request.user.profile
+            comment = form.save(commit=False)
+            comments = form.cleaned_data['comment']
+            comment.image = image
+            comment.user = request.user.profile
             image.save()
-            savecomment.save()
+            comment.save()
             return HttpResponseRedirect(request.path_info)
     else:
         form = CommentForm()
     params = {
         'image': image,
         'form': form,
+        'comments':comments,
     }
-    image = Image.objects.get(id=id)
+    # image = Image.objects.get(id=id)
     image.comments_count = image.comments_count + 1
     image.save()
 

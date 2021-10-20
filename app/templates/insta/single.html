@@ -30,9 +30,9 @@
                 <a href="{% url 'user' .user.username %}" class="mt-4 user" style="font-weight: bold;color: darkorange;">{{user.username | title}}</a>
 
                 <hr style="width:88%">
-                {% for comment in comment %}
+                {% for comment in comments %}
                 <div class="comment">
-                    <div class="ml-2"><strong>{{ user.comment.user.username }}</strong> <span class="text-" style="color: darkorange;">{{ comment.comment }}</span>
+                    <div class="ml-2"><strong>{{ comment.user.user.username }}</strong> <span class="text-">{{ comment.comment }}</span>
                     </div>
                 </div>
                 {% empty %}
@@ -43,7 +43,7 @@
                 <hr style="width:96%; margin-top:84%;">
                 <div class="row">
                     <div class="col-md-10">
-                       <form action="{% url 'comment' 13 %}"  method="post" enctype="multipart/form-data" novalidate style="background:transparent;label:black">
+                       <form action=""  method="post" enctype="multipart/form-data" novalidate style="background:transparent;label:black">
                             {% csrf_token %}
                             {{ form|crispy }}
                         </div>

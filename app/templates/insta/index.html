@@ -36,15 +36,21 @@
             </div>
 
             {% for image in images %}
-            <div class="card mb-4 h-30 w-150" style="background-color: white;">
+            <div class="card mb-1 mt-0 " style="background-color: white;">
                 <div class="card-title">
+                    <div class="row">
+                    <div class="col-md-1">
                     <img src="" class=" border ml-3 mt-2 mr-3"
-                          width="20" height="20">
+                        width="30" height="20">
                     <a href="{% url 'user' user.username  %}" class="mt-4 user" style="color: white;">{{user.username|title}}</a>
+                    </div>
+                    <div class="col-md-3">
+                                            <h3>{{ user.username }}</h3></div>
+                                            </div>
                 </div>
-                <div class="card-body mb-4 ">
+                <div class="card-body mb-4 " style="margin-top: -10%;">
                     <a href="{% url 'comment' image.id %}"><div class="card-text">
-                        <img src="{{ image.image.url }}"  class="card-img"  width="100%">
+                        <img src="{{ image.image.url }}"  class="card-img" >
                     </div></a>
                 </div>
                 <div class="iconic ml-2">
@@ -61,7 +67,7 @@
                 <span class="ml-4 mb-1" style="color: black;"><strong>{{image.like_count}}like</strong></span>
                 <span class="text ml-4 viewall"><a href="{% url 'comment' image.id %}" style="color:gray;font-weight: bold;">View all {{image.comments_count}} comments</a></span>
                 <div class="allcomments mb-1">
-                    {% for comment in image.comment.all|slice:'2' %}
+                    {% for comment in image.comments.all|slice:'2' %}
                     <div class="comment">
                         <div class="ml-4"><strong>{{ user.username }}</strong> <span
                                 class="text-secondary">{{ comment.comment }}</span>
