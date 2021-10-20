@@ -55,6 +55,8 @@ def index(request):
 
 @login_required(login_url='login')
 def profile(request, username):
+    images = request.user.profile.images.all()
+    print(images)
     if request.method == 'POST':
         
         user_form = UpdateUserForm(request.POST, instance=request.user)
@@ -74,25 +76,23 @@ def profile(request, username):
     params = {
         'profile_form': profile_form,
         'user_form': user_form,
+        'images': images,
        
 
     }
     return render(request, 'insta/profile.html', params)
 
 
-@login_required(login_url='login')
+@login_required(login_url='/accounts/login/')
 def user_profile(request, username):
     user_prof = get_object_or_404(User, username=username)
     if request.user == user_prof:
         return redirect('profile', username=request.user.username)
     user_posts = user_prof.profile.images.all()
-    
-    
     params = {
         'user_prof': user_prof,
-        'user_posts': user_posts,
-    }
-    return render(request, 'insta/user.html', params)
+        'user_posts': user_posts,}
+    return render(request, 'user.html', params)
 
 
 @login_required(login_url='/accounts/login/')
