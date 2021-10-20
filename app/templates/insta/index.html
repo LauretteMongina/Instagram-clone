@@ -57,6 +57,8 @@
                     </a></button>
                 </div>
                 <span class="ml-4 mb-1" style="color: black;"><strong>{{user.username|title}}</strong></span>
+                <h6 class="" style="color: white;">{{ image.image_caption|slice:":30" }}<small><span class="text-muted">...Read
+                    More</span></small> </h6>
                 <span class="ml-4 mb-1" style="color: black;"><strong>{{image.like_count}}like</strong></span>
                 <span class="text ml-4 viewall"><a href="{% url 'comment' image.id %}" style="color:black">view all {{image.comments_count}} comments</a></span>
                 <div class="allcomments mb-1">
