@@ -1,0 +1,2 @@
+Hello {{user}}
+Welcome to Instagram. Captures your favourite moments
