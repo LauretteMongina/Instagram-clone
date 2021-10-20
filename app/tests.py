@@ -1,8 +1,5 @@
 from django.test import TestCase
-
-# Create your tests here.
-from django.test import TestCase
-
+import datetime as dt
 from .models import Image, Comment, Profile
 
 # Create your tests here.
@@ -21,9 +18,9 @@ class ImageTestClass:
 class ProfileTestClass:
     from django.contrib.auth.models import User
     def setUp(self):
-        self.user = User(username='tess')
+        self.user = User(username='laurette')
         self.user.save()
-        self.profile = Profile(id=1,user=self.user,photo='download.jpeg',bio='Stemist', name='person')
+        self.profile = Profile(id=1,user=self.user,photo='download.jpeg',bio='TECHIE', name='person')
         self.profile.save_profile()
 
     def tearDown(self):
