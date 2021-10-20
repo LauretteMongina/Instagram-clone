@@ -11,7 +11,6 @@ from .models import Image, Comment, Profile
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.views.generic import RedirectView
-from rest_framework.response import Response
 
 # Create your views here.
 def registration(request):
