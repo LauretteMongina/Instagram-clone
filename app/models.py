@@ -83,7 +83,7 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-        return self.comment
+        return f'{self.comment}Image'
 class Likes(models.Model):
     image = models.ForeignKey(Image, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
