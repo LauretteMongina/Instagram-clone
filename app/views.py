@@ -56,17 +56,20 @@ def index(request):
 @login_required(login_url='login')
 def profile(request, username):
     if request.method == 'POST':
-        profile_form = UpdateUserProfileForm(request.POST, request.FILES)
+        
         user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateUserProfileForm(request.POST, request.FILES)
         
         if user_form.is_valid() and profile_form.is_valid():
-            profile_form.save()
+            
             user_form.save()
+            profile_form.save()
             
             return HttpResponseRedirect(request.path_info)
     else:
-        profile_form = UpdateUserProfileForm(instance=request.user)
+        
         user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateUserProfileForm(instance=request.user)
         
     params = {
         'profile_form': profile_form,
