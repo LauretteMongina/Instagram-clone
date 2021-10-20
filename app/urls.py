@@ -10,7 +10,7 @@ urlpatterns = [
     path('account/', include('django.contrib.auth.urls')),
     path('', views.index, name='index'),
     path('profile/<username>/', views.profile, name='profile'),
-    url(r'^user/(?P<username>\w{0,50})/$', views.user_profile, name='user'),
+    url('user_profile/<username>/', views.user_profile, name='user_profile'),
     path('comment/<id>', views.comment, name='comment'),
     path('like<int:id>/', views.like_image, name='like'),
     path('search/', views.search, name='search'),
