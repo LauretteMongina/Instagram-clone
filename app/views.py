@@ -24,7 +24,7 @@ def registration(request):
             email = form.cleaned_data.get('email')
             login(request, user)
             recipient = Profile(user = user,email =email)
-            recipient.save()
+            # recipient.save()
             send_welcome_email(user,email)
             return redirect('index')
     else:
