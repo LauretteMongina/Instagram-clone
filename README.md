@@ -84,7 +84,7 @@ Open the application on your browser `127.0.0.1:8000`.
   
   
 ## Known Bugs  
-* User is not able to see comments. 
+* Search brings a blank page.
   
 ## Contact Information   
 If you have any question or contributions, please email me at [monginalaurette@gmail.com]  
